@@ -16,15 +16,15 @@ public class TicketService {
         TicketService ticketService = new TicketService();
 
         // Empty Ticket
-        Ticket emptyTicket = new Ticket(0, "", 0, 0,0 ,false, 'A', 0,150.25);
+        Ticket emptyTicket = new Ticket();
         ticketService.addTicket(emptyTicket);
 
         // Full Ticket
-        Ticket fullTicket = new Ticket(1, "Concert Hall", 111, System.currentTimeMillis(), System.currentTimeMillis(), true, 'B', 10.5,100.25);
+        Ticket fullTicket = new Ticket(1, "Sphear", 111, System.currentTimeMillis(), System.currentTimeMillis(), true, 'C', 10.5,100.25);
         ticketService.addTicket(fullTicket);
 
         // Limited Ticket
-        Ticket limitedTicket = new Ticket("Limited Concert Hall", 122, System.currentTimeMillis());
+        Ticket limitedTicket = new Ticket("Sphear", 122, System.currentTimeMillis());
         ticketService.addTicket(limitedTicket);
 
 

@@ -9,9 +9,25 @@ public class Ticket {
     private boolean isPromo;
     private char stadiumSector;
     private double maxAllowedBackpackWeight;
-    private final double ticketPrice;
+    private double ticketPrice;
+
+    public Ticket(){
+
+    }
 
     public Ticket(int id, String concertHall, int eventCode, long time, long creationTime, boolean isPromo, char stadiumSector, double maxAllowedBackpackWeight, double ticketPrice) {
+        if (id / 1000 > 9) {
+            throw new IllegalArgumentException("id should be less than 4 digits");
+        }
+        if (concertHall.length() >= 10) {
+            throw new IllegalArgumentException("max chars of concertHall should be les than 10");
+        }
+        if (eventCode / 100 > 9) {
+            throw new IllegalArgumentException("event code should be less than 4 digits");
+        }
+        if (stadiumSector > 'C' || stadiumSector < 'A') {
+            throw new IllegalArgumentException("sector should be in between of A to C");
+        }
         this.id = id;
         this.concertHall = concertHall;
         this.eventCode = eventCode;
@@ -24,7 +40,16 @@ public class Ticket {
     }
 
     public Ticket(String concertHall, int eventCode, long time) {
-        this(0, concertHall, eventCode, time, System.currentTimeMillis(), false, 'A', 0, 0);
+        if (eventCode / 100 > 9) {
+            throw new IllegalArgumentException("event code should be less than 4 digits");
+        }
+        if (concertHall.length() >= 10) {
+            throw new IllegalArgumentException("max chars of concertHall should be les than 10");
+        }
+
+        this.concertHall = concertHall;
+        this.eventCode = eventCode;
+        this.time = time;
     }
 
     public String toString() {
