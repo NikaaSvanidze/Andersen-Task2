@@ -12,6 +12,11 @@ public class TicketService {
         tickets.add(ticket);
     }
 
+    private void initializeTickets() {
+        for (int i = 1; i <= 10; i++) {
+            tickets.add(new Ticket(i, "Event " + i, 100 + i, System.currentTimeMillis(), System.currentTimeMillis(), true, 'A', 10.0 * i, 50.0 * i));
+        }
+
     public static void main(String[] args) {
         TicketService ticketService = new TicketService();
 
