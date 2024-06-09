@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TicketService {
     private List<Ticket> tickets;
@@ -11,6 +12,13 @@ public class TicketService {
     public void addTicket(Ticket ticket) {
         tickets.add(ticket);
     }
+
+    public List<Ticket> getTicketsByStadiumSector(char stadiumSector) {
+        return tickets.stream()
+                .filter(ticket -> ticket.getStadiumSector() == stadiumSector)
+                .collect(Collectors.toList());
+    }
+
 
     public static void main(String[] args) {
         TicketService ticketService = new TicketService();
@@ -31,6 +39,12 @@ public class TicketService {
         List<Ticket> tickets = ticketService.tickets;
         for(int i = 0; i < tickets.size(); i++) {
             Ticket ticket = tickets.get(i);
+            System.out.println(ticket.toString());
+        }
+
+        // Getting tickets by Stadium Sector 'C'
+        List<Ticket> sectorCTickets = ticketService.getTicketsByStadiumSector('C');
+        for (Ticket ticket : sectorCTickets) {
             System.out.println(ticket.toString());
         }
     }
