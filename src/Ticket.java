@@ -71,4 +71,8 @@ public class Ticket {
                 ", ticketPrice=" + ticketPrice + // Include ticket price in the output
                 '}';
     }
+
+    public char getStadiumSector() {
+        return stadiumSector;
+    }
 }
