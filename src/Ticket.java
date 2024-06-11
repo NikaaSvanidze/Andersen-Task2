@@ -1,6 +1,9 @@
+import Interfaces.IGetAndSetInterface;
+import Interfaces.IPrintInterface;
+
 import java.time.Instant;
 
-public class Ticket {
+public class Ticket implements IGetAndSetInterface{
     private int id;
     private String concertHall;
     private int eventCode;
@@ -11,6 +14,17 @@ public class Ticket {
     private double maxAllowedBackpackWeight;
     private double ticketPrice;
 
+    //Get and Set interface methods
+    @Override
+    public int GetId() {
+        return id;
+    }
+
+    @Override
+    public void SetId(int id) {
+        this.id = id;
+    }
+    // Constructors
     public Ticket(){
 
     }
@@ -52,6 +66,11 @@ public class Ticket {
         this.time = time;
     }
 
+    public Ticket(char stadiumSector, long time) {
+        this.stadiumSector = stadiumSector;
+        this.time = time;
+    }
+    //
     public String toString() {
         String promoStatus = isPromo ? "Promo" : "Regular";
         String sector = Character.toString(stadiumSector);
