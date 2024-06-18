@@ -36,6 +36,7 @@ public class TicketService {
         Ticket fullTicket = new Ticket(1, "Sphear", 111, System.currentTimeMillis(), System.currentTimeMillis(), true, 'C', 10.5,100.25);
         ticketService.addTicket(fullTicket);
 
+
         // Limited Ticket
         Ticket limitedTicket = new Ticket("Sphear", 122, System.currentTimeMillis());
         ticketService.addTicket(limitedTicket);
