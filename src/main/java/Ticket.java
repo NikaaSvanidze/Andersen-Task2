@@ -26,7 +26,7 @@ public class Ticket implements IGetAndSetInterface{
     }
     // Constructors
     public Ticket(){
-
+        
     }
 
     public Ticket(int id, String concertHall, int eventCode, long time, long creationTime, boolean isPromo, char stadiumSector, double maxAllowedBackpackWeight, double ticketPrice) {
